@@ -59,14 +59,6 @@ public class Main {
         return Math.log(1 - x);
     }
 
-    static void writeSumOfSequence(double sumN) {
-        System.out.println("Сумма членов = " + sumN);
-    }
-
-//    static void writeSumOfSequenceMoreThanEpsilon(double sumE, String e) {
-//        System.out.println("Сумма членов, которые больше,чем e" + e + " = " + sumE);
-//    }
-
     static void writeLogarithm(double SumLogarithm) {
         System.out.println("Значение функции через метод Math  = " + SumLogarithm);
     }

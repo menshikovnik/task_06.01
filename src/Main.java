@@ -42,17 +42,24 @@ public class Main {
         double firstTerm = -x;
         double sum = 0;
         double sumE = 0;
-
+        double sumE10 = 0;
+        double firstTerm1 = -x;
+        double firstTerm2 = -x;
         for (int i = 1; i <= n; i++) {
             sum += firstTerm;
             firstTerm = nextTerm(i, x);
-            if (firstTerm > epsilon) {
-                sumE += firstTerm;
+            if (Math.abs(firstTerm1) > epsilon) {
+                sumE += firstTerm1;
+                firstTerm1 = nextTerm(i, x);
+            }
+            if (Math.abs(firstTerm2) > epsilon/10) {
+                sumE10 += firstTerm2;
+                firstTerm2 = nextTerm(i, x);
             }
         }
-        System.out.println("Сумма членов, которые больше,чем e  = " + sumE);
-        System.out.println("Сумма членов, которые больше,чем e/10 = " + sum);
         System.out.println("Сумма членов = " + sum);
+        System.out.println("Сумма членов, которые больше,чем e  = " + sumE);
+        System.out.println("Сумма членов, которые больше,чем e/10 = " + sumE10);
     }
 
     static double calculateLogarithm(double x) {

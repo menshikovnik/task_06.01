@@ -45,17 +45,21 @@ public class Main {
         double sumE10 = 0;
         double firstTerm1 = -x;
         double firstTerm2 = -x;
-        for (int i = 1; i <= n; i++) {
+        int i = 1;
+        while (Math.abs(firstTerm2) > epsilon / 10 || Math.abs(firstTerm) <= n) {
+            if (i < n){
             sum += firstTerm;
             firstTerm = nextTerm(i, x);
+            }
             if (Math.abs(firstTerm1) > epsilon) {
                 sumE += firstTerm1;
                 firstTerm1 = nextTerm(i, x);
             }
-            if (Math.abs(firstTerm2) > epsilon/10) {
+            if (Math.abs(firstTerm2) > epsilon / 10) {
                 sumE10 += firstTerm2;
                 firstTerm2 = nextTerm(i, x);
             }
+            i++;
         }
         System.out.println("Сумма членов = " + sum);
         System.out.println("Сумма членов, которые больше,чем e  = " + sumE);
@@ -74,8 +78,8 @@ public class Main {
 
         double x = num1;
         int n = num2;
-         double epsilon = num3;
-         calculateSumOfSequence(x, n, epsilon);
+        double epsilon = num3;
+        calculateSumOfSequence(x, n, epsilon);
         writeLogarithm(calculateLogarithm(x));
     }
 }
